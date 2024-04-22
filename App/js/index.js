@@ -44,6 +44,17 @@ xui.Class('App', 'xui.Module',{
             );
             
             append(
+                xui.create("xui.UI.Input")
+                .setHost(host,"xui_ui_input7")
+                .setLeft("7.619047619047619em")
+                .setTop("14.476190476190476em")
+                .setWidth("18em")
+                .setLabelSize("8em")
+                .setLabelCaption("Player")
+                .setValue("asdd")
+            );
+            
+            append(
                 xui.create("xui.UI.Div")
                 .setHost(host,"ctl_pane39")
                 .setShowEffects("Blur")
@@ -518,19 +529,20 @@ xui.Class('App', 'xui.Module',{
                             "{page.xui_ui_treegrid6.setUIValue()}",
                             undefined,
                             undefined,
-                            "{args[3].}"
+                            "{page.xui_ui_input7}"
                         ],
                         "method" : "setUIValue",
                         "conditions" : [
                             {
                                 "left" : "{page.xui_ui_input7}",
-                                "symbol" : "include",
-                                "right" : "{args[3].}"
+                                "symbol" : "defined",
+                                "right" : ""
                             }
                         ],
                         "redirection" : "other:callback:call",
                         "event" : 1
-                    }
+                    },
+                    "_xui_ui_button5_onclick"
                 ])
             );
             
@@ -637,17 +649,6 @@ xui.Class('App', 'xui.Module',{
                 ])
             );
             
-            append(
-                xui.create("xui.UI.Input")
-                .setHost(host,"xui_ui_input7")
-                .setLeft("7.619047619047619em")
-                .setTop("14.476190476190476em")
-                .setWidth("18em")
-                .setLabelSize("8em")
-                .setLabelCaption("Player")
-                .setValue("asdd")
-            );
-            
             return children;
             // ]]Code created by CrossUI RAD Studio
         },
@@ -664,6 +665,17 @@ xui.Class('App', 'xui.Module',{
                  "method":"message"
                 }
             ]
+        },
+        /**
+         * Fired when user click it
+         * @method onClick [xui.UI.Button event]
+         * @param {xui.UIProfile.} profile  The current control's profile object
+         * @param {Event} e , Dom event object
+         * @param {Element.xui} src  id or Dom Element
+         * @param {} value  Object
+        */
+        _xui_ui_button5_onclick:function(profile, e, src, value){
+            var ns = this, uictrl = profile.boxing();
         }
     }
 });
